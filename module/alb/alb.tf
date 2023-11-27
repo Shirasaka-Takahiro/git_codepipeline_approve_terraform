@@ -71,7 +71,6 @@ resource "aws_lb_target_group" "green" {
   }
 }
 
-
 ##HTTP Listener
 resource "aws_lb_listener" "alb_http_listener" {
   load_balancer_arn = aws_lb.alb.arn

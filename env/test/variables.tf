@@ -138,6 +138,12 @@ variable "domain_name" {
   default     = "onya-lab.site"
 }
 
+##SNS
+variable "sns_email" {
+  description = "email address for sns"
+  type        = string
+}
+
 variable "sans" {
   description = "Subject alternative names for ACM"
   type        = string
@@ -148,14 +154,14 @@ variable "sans" {
 variable "repository_name" {
   description = "ECR repository name"
   type        = string
-  default     = "test_gtihubactions_codedeploy_terraform"
+  default     = "git_codepipeline_approve_terraform"
 }
 
 ##Docker Image Name
 variable "image_name" {
   description = "Dockerimage name"
   type        = string
-  default     = "takahiros991/test_gtihubactions_codedeploy_terraform"
+  default     = "takahiros991/git_codepipeline_approve_terraform"
 }
 
 ##Fargate CPU
@@ -172,19 +178,6 @@ variable "fargate_memory" {
   default     = "512"
 }
 
-##IAM ECS
-variable "role_name_1" {
-  description = "ECS IAM role name"
-  type        = string
-  default     = "role-fargate_task_execution"
-}
-
-variable "policy_name_1" {
-  description = "ECS IAM policy name"
-  type        = string
-  default     = "fargate_task_execution"
-}
-
 ##CodeDeploy
 variable "codedeploy_app_name" {
   description = "Codedeploy app name"
@@ -198,15 +191,75 @@ variable "deployment_group_name" {
   default     = "app01"
 }
 
-##IAM Codedeploy
+##IAM ECS
+variable "role_name_1" {
+  description = "ECS IAM role name"
+  type        = string
+  default     = "role-fargate_task_execution"
+}
+
+variable "policy_name_1" {
+  description = "ECS IAM policy name"
+  type        = string
+  default     = "fargate_task_execution"
+}
+
+##IAM Codebuild
 variable "role_name_2" {
+  description = "Codebuild IAM role name"
+  type        = string
+  default     = "role-codebuild-service-role"
+}
+
+variable "policy_name_2" {
+  description = "Codebuild IAM policy name"
+  type        = string
+  default     = "build-policy"
+}
+
+##IAM Codedeploy
+variable "role_name_3" {
   description = "Codedeploy IAM role name"
   type        = string
   default     = "role-codedeploy-service-role"
 }
 
-variable "policy_name_2" {
+variable "policy_name_3" {
   description = "Codedeploy IAM policy name"
   type        = string
   default     = "deploy-policy"
+}
+
+##IAM Codepipeline
+variable "role_name_4" {
+  description = "Codepipeline IAM role name"
+  type        = string
+  default     = "role-codepipeline-service-role"
+}
+
+variable "policy_name_4" {
+  description = "Codepipeline IAM policy name"
+  type        = string
+  default     = "pipeline-policy"
+}
+
+##Codebuild Github URL
+variable "github_url" {
+  description = "Codebuild Github URL"
+  type        = string
+  default     = ""
+}
+
+##Codepipeline Github Repository ID
+variable "full_repositroy_id" {
+  description = "Codepipeline Github repository id"
+  type        = string
+  default     = ""
+}
+
+##Codepipeline Github Branch Name
+variable "branch_name" {
+  description = "Codepipeline Github branch name"
+  type        = string
+  default     = "main"
 }
