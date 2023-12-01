@@ -60,6 +60,8 @@ resource "aws_codepipeline" "pipeline" {
       configuration = {
         ApplicationName     = var.codedeploy_app_name
         DeploymentGroupName = var.codedeploy_deployment_group_name
+        TaskDefinitionTemplateArtifact = "build_output"
+        AppSpecTemplateArtifact        = "build_output"
       }
     }
   }
