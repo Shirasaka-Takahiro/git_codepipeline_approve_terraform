@@ -53,7 +53,7 @@ resource "aws_codepipeline" "pipeline" {
       name            = "Deploy"
       category        = "Deploy"
       owner           = "AWS"
-      provider        = "CodeDeploy"
+      provider        = "CodeDeployToECS"
       input_artifacts = ["build_output"]
       version         = "1"
 
@@ -61,7 +61,9 @@ resource "aws_codepipeline" "pipeline" {
         ApplicationName     = var.codedeploy_app_name
         DeploymentGroupName = var.codedeploy_deployment_group_name
         TaskDefinitionTemplateArtifact = "build_output"
+        TaskDefinitionTemplatePath     = var.task_definition_template_path
         AppSpecTemplateArtifact        = "build_output"
+        AppSpecTemplatePath            = var.app_spec_template_path
       }
     }
   }
