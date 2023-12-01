@@ -58,9 +58,8 @@ resource "aws_codepipeline" "pipeline" {
       version         = "1"
 
       configuration = {
-        ApplicationName          = var.codedeploy_app_name
-        DeploymentGroupName      = var.codedeploy_deployment_group_name
-        FileName    = "imagedef.json"
+        ApplicationName     = var.codedeploy_app_name
+        DeploymentGroupName = var.codedeploy_deployment_group_name
       }
     }
   }

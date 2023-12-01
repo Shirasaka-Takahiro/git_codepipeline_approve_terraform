@@ -18,7 +18,7 @@ resource "null_resource" "default" {
   }
 
   provisioner "local-exec" {
-    command = "docker tag ${var.image_name}:v1 ${aws_ecr_repository.default.repository_url}:latest"
+    command = "docker tag ${var.image_name}:latest ${aws_ecr_repository.default.repository_url}:latest"
   }
 
   provisioner "local-exec" {

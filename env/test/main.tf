@@ -183,23 +183,23 @@ module "sns" {
 
 ##CloudWatch
 module "cloudwatch" {
-  source = "../../module/cloudwatch"
-  general_config                    = var.general_config
+  source         = "../../module/cloudwatch"
+  general_config = var.general_config
 }
 
 ##ECS
 module "ecs" {
   source = "../../module/ecs"
 
-  general_config = var.general_config
-  tg_blue_arn         = module.alb.tg_blue_arn
-  ecr_repository = module.ecr.ecr_repository
+  general_config            = var.general_config
+  tg_blue_arn               = module.alb.tg_blue_arn
+  ecr_repository            = module.ecr.ecr_repository
   cloudwatch_log_group_name = module.cloudwatch.cloudwatch_log_group_name
-  fargate_cpu    = var.fargate_cpu
-  fargate_memory = var.fargate_memory
-  dmz_subnet_ids = module.network.dmz_subnet_ids
-  internal_sg_id = module.internal_sg.security_group_id
-  iam_ecs_arn    = module.iam_ecs.iam_role_arn
+  fargate_cpu               = var.fargate_cpu
+  fargate_memory            = var.fargate_memory
+  dmz_subnet_ids            = module.network.dmz_subnet_ids
+  internal_sg_id            = module.internal_sg.security_group_id
+  iam_ecs_arn               = module.iam_ecs.iam_role_arn
 }
 
 ##ECR
@@ -220,7 +220,7 @@ module "codebuild" {
   iam_codebuild_arn = module.iam_codebuild.iam_role_arn
   github_url        = var.github_url
   vpc_id            = module.network.vpc_id
-  dmz_subnet_ids = module.network.dmz_subnet_ids
+  dmz_subnet_ids    = module.network.dmz_subnet_ids
   internal_sg_id    = module.internal_sg.security_group_id
 }
 
@@ -228,15 +228,15 @@ module "codebuild" {
 module "codedeploy" {
   source = "../../module/codedeploy"
 
-  general_config = var.general_config
+  general_config        = var.general_config
   codedeploy_app_name   = var.codedeploy_app_name
   deployment_group_name = var.deployment_group_name
   iam_codedeploy_arn    = module.iam_codedeploy.iam_role_arn
-  ecs_cluster_name = module.ecs.ecs_cluster_name
-  ecs_service_name = module.ecs.ecs_service_name
-  tg_blue_name         = module.alb.tg_blue_name
+  ecs_cluster_name      = module.ecs.ecs_cluster_name
+  ecs_service_name      = module.ecs.ecs_service_name
+  tg_blue_name          = module.alb.tg_blue_name
   tg_green_name         = module.alb.tg_green_name
-  alb_https_listener = module.alb.alb_https_listener_arn
+  alb_https_listener    = module.alb.alb_https_listener_arn
 }
 
 ##IAM
@@ -289,12 +289,12 @@ module "codepipeline" {
 
   general_config                     = var.general_config
   iam_codepipeline_arn               = module.iam_codepipeline.iam_role_arn
-  bucket_name                          = module.s3_pipeline_bucket.bucket_name
+  bucket_name                        = module.s3_pipeline_bucket.bucket_name
   branch_name                        = var.branch_name
   full_repositroy_id                 = var.full_repositroy_id
   codebuild_project_name             = module.codebuild.codebuild_project_name
-  codedeploy_app_name                 = module.codedeploy.codedeploy_app_name
-  codedeploy_deployment_group_name                   = module.codedeploy.codedeploy_deployment_group_name
+  codedeploy_app_name                = module.codedeploy.codedeploy_app_name
+  codedeploy_deployment_group_name   = module.codedeploy.codedeploy_deployment_group_name
   codestarconnections_connection_arn = module.codestarconnections.codestarconnections_connection_arn
 }
 

@@ -10,7 +10,7 @@ output "alb_id" {
   value = aws_lb.alb.id
 }
 
-output "alb_https_listener_arn" { 
+output "alb_https_listener_arn" {
   value = aws_lb_listener.alb_https_listener.arn
 }
 

@@ -31,7 +31,7 @@ resource "aws_codedeploy_deployment_group" "default" {
     deployment_option = "WITH_TRAFFIC_CONTROL"
     deployment_type   = "BLUE_GREEN"
   }
-  
+
   auto_rollback_configuration {
     enabled = true
     events  = ["DEPLOYMENT_FAILURE"]
@@ -52,5 +52,5 @@ resource "aws_codedeploy_deployment_group" "default" {
       }
     }
   }
-  
+
 }
