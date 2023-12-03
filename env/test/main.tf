@@ -296,5 +296,7 @@ module "codepipeline" {
   codedeploy_app_name                = module.codedeploy.codedeploy_app_name
   codedeploy_deployment_group_name   = module.codedeploy.codedeploy_deployment_group_name
   codestarconnections_connection_arn = module.codestarconnections.codestarconnections_connection_arn
+  task_definition_template_path      = var.task_definition_template_path
+  app_spec_template_path             = var.app_spec_template_path
 }
 

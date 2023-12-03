@@ -9,3 +9,5 @@ variable "codebuild_project_name" {}
 variable "codedeploy_app_name" {}
 variable "codedeploy_deployment_group_name" {}
 variable "codestarconnections_connection_arn" {}
+variable "task_definition_template_path" {}
+variable "app_spec_template_path" {}

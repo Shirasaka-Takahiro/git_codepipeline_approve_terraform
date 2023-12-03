@@ -263,3 +263,17 @@ variable "branch_name" {
   type        = string
   default     = "main"
 }
+
+##Codepipeline Task Definition Tempalte Path
+variable "task_definition_template_path" {
+  description = "Codepipeline Task Definition Tempalte Path"
+  type        = string
+  default     = ""
+}
+
+##Codepipeline App Spec Tempalte Path
+variable "app_spec_template_path" {
+  description = "Codepipeline App Spec Tempalte Path"
+  type        = string
+  default     = ""
+}
