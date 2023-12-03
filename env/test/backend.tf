@@ -1,9 +1,9 @@
 terraform {
   required_version = "~> 1.3.6"
   backend "s3" {
-    bucket  = "example-stg-tfstate-bucket"
+    bucket  = "example-test-tfstate-bucket"
     region  = "ap-northeast-1"
-    key     = "stg.tfstate"
+    key     = "test.tfstate"
     profile = "terraform-user"
   }
   required_providers {

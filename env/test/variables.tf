@@ -182,13 +182,13 @@ variable "fargate_memory" {
 variable "codedeploy_app_name" {
   description = "Codedeploy app name"
   type        = string
-  default     = "app01"
+  default     = "app02"
 }
 
 variable "deployment_group_name" {
   description = "Codedeploy deployment group name"
   type        = string
-  default     = "app01"
+  default     = "app02"
 }
 
 ##IAM ECS
